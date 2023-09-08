@@ -1,4 +1,4 @@
 all :
-	gcc -shared -fPIC -o ../../sysfilter.so filter.c
+	gcc -shared -fPIC -o ../../libsyspart.so filter.c
 clean :
-	rm ../../sysfilter.so
+	rm ../../libsyspart.so
