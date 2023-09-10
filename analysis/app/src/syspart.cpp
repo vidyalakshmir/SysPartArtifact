@@ -2040,7 +2040,7 @@ void Syspart::syscallsOfMainLoop(bool icanalysisFlag, bool typearmorFlag, string
     }
     cout<<") ";
     */
-    cout<<"["
+    cout<<"[";
     int j=0;
     for(auto i : tot_syscalls)
     {
