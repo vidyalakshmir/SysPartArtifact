@@ -1,0 +1,4 @@
+/* GNU ld script
+*/
+OUTPUT_FORMAT(elf64-x86-64)
+GROUP ( /home/vidya/glibc-2.24-install/lib/libm.so.6  AS_NEEDED ( /home/vidya/glibc-2.24-install/lib/libmvec_nonshared.a /home/vidya/glibc-2.24-install/lib/libmvec.so.1 ) )
