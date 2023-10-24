@@ -116,7 +116,7 @@ void ElfDynamic::setupSearchPath() {
     std::string libcPath = parentPath + "/binaries/final/libc";
 
     searchPath.push_back(cfs->transform(libPath));
-    searchPath.push_back(cfs->transform(otherlibPath));
+    //searchPath.push_back(cfs->transform(otherlibPath));
 
     //searchPath.push_back(cfs->transform(libcPath));
 
