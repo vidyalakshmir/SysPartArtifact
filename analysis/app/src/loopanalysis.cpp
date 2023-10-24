@@ -551,3 +551,4 @@ set<Block*> LoopAnalysis::findNonLoopParent(Function* func, Loop *l)
     }
     return parent_blocks;
 }
+

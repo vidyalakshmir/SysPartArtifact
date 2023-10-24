@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
     {
         for(auto func : CIter::functions(module))
         {
+            cout<<"FUNC "<<func->getName()<<" "<<std::hex<<func->getAddress()<<endl;
             loopAnalysis.detectLoops(func);
         }
     }
