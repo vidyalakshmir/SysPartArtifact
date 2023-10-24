@@ -2,7 +2,7 @@
 
 curdir=$1
 newfile="${curdir}/typearmor_parsed.txt" 
-
+rm -f $newfile
 for myfile in ${curdir}/binfo.*
 	do
 	myfilename=$(basename ${myfile})
