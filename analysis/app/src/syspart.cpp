@@ -1368,14 +1368,26 @@ void Syspart::run2(bool direct, bool icanalysisFlag, bool typearmorFlag, string 
   
     findDirectSyscalls();
     findDerivedSyscalls(start_func);
-    cout<<"Syscall generation DONE"<<endl;
+    //cout<<"Syscall generation DONE"<<endl;
     
     if(func_name != "*")
     {
         auto f = findFunctionByName(func_name);
         if(f != NULL)
         {
-            getSyscallInfo(f);
+	    
+            //getSyscallInfo(f);
+            auto sys_node = getSysNode(f);
+            if(sys_node == NULL)
+                    cout<<"No system calls generated for "<<f->getName()<<endl;
+            auto tot_syscalls = getSyscalls(sys_node);
+	    cout<<"SYSCALLS [";
+            for(auto t : tot_syscalls)
+                {
+                        cout<<system_calls[t]<<",";
+                }
+	    cout<<"]"<<endl;
+	    cout<<"SIZE "<<tot_syscalls.size()<<endl;
         }
     }
     else
@@ -2033,14 +2045,17 @@ void Syspart::syscallsOfMainLoop(bool icanalysisFlag, bool typearmorFlag, string
         }
         visitedPartitionFns.insert(f);
     }
-    /*cout<<"\nMAINLOOP "<<std::dec<<tot_syscalls.size()<<" : (";
+    cout<<"\nMAINLOOP "<<std::dec<<tot_syscalls.size()<<endl;
+    /*
+    cout<<"\nMAINLOOP "<<std::dec<<tot_syscalls.size()<<" : (";
+    
     for(auto i : tot_syscalls)
     {
         cout<<system_calls[i]<<" ";
     }
     cout<<") ";
     */
-    cout<<"[";
+    cout<<"JSON [";
     int j=0;
     for(auto i : tot_syscalls)
     {
@@ -2067,13 +2082,15 @@ void Syspart::syscallsOfMainLoop(bool icanalysisFlag, bool typearmorFlag, string
     for(auto fini_sys : fini_syscalls)
         start_syscalls.insert(fini_sys);
     set_difference(start_syscalls.begin(), start_syscalls.end(), tot_syscalls.begin(), tot_syscalls.end(), std::inserter(filtered_syscalls, filtered_syscalls.begin()));
+    cout<<"\nMAIN "<<std::dec<<start_syscalls.size()<<endl;
+    cout<<"\nAT "<<std::dec<<(ip_callgraph.getGlobalATList()).size()<<endl;
     /*cout<<"The system calls which are filtered because of temporal specialization are : "<<endl;
     for(auto s : filtered_syscalls)
     {
         cout<<system_calls[s]<<" ";
     }
     cout<<endl;*/
-    //cout<<"The partition size is : "<<partitionSize<<endl;
+    cout<<"PARTITION_SIZE "<<partitionSize<<endl;
 }
 
 void Syspart::run11()
