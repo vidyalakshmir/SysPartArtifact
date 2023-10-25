@@ -1,3 +1,4 @@
+cd ../analysis/app
 export OUT=/home/syspart/SysPartArtifact/outputs
 export PIN_ROOT=/home/syspart/SysPartArtifact/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux
 cd src/pintool

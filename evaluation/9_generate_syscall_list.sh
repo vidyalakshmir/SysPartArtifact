@@ -1,6 +1,6 @@
 #!/bin/bash
 export OUT=/home/syspart/SysPartArtifact/outputs
-
+cd ../analysis/app
 mkdir -p $OUT/bind/syscall_results
 sed 's/\[//' $OUT/bind/syscalls.json | sed 's/\]//' | sed 's/,/\n/g' > $OUT/bind/syscall_results/mainloop_sysno.txt
 python3 src/scripts/convert_sysno_to_name.py $OUT/bind/syscall_results/mainloop_sysno.txt | sort > $OUT/bind/syscall_results/mainloop_sysnames.txt

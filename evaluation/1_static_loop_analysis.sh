@@ -1,3 +1,4 @@
+cd ../analysis/app
 echo "Building the tools"
 cp ../tools/src_files/elfdynamic.cpp ../tools/egalito/src/elf/elfdynamic.cpp
 make

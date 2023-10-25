@@ -1,3 +1,4 @@
+cd ../analysis/app
 cp ../tools/src_files/elfdynamic_libc_2.24.cpp ../tools/egalito/src/elf/elfdynamic.cpp
 cp ../tools/src_files/nss_libc_2.24.cpp src/nss.cpp
 make

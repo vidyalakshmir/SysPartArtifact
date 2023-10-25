@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Assuming your file is named "input.txt"
-input_file=$1
+input_file="kernel_eval/kernel_cve.out"
+cd ../analysis/app
 sf_folders=(
 "/home/syspart/SysPartArtifact/related_work/sf/bind/"
 "/home/syspart/SysPartArtifact/related_work/sf/httpd"
