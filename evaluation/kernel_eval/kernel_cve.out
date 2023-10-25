@@ -1,0 +1,36 @@
+CVE-2018-18281  execve	execveat mremap
+CVE-2016-3672   execve	execveat
+CVE-2015-3339   execve	execveat
+CVE-2015-1593   execve	execveat
+CVE-2014-9585   execve	execveat
+CVE-2013-0914   execve	execveat
+CVE-2012-4530   execve	execveat
+CVE-2010-4346   execve  execveat
+CVE-2010-3858   execve  execveat
+CVE-2008-3527   execve  execveat
+CVE-2018-14634  execve  execveat
+CVE-2012-3375   epoll_ctl
+CVE-2011-1082   epoll_ctl	epoll_pwait	epoll_wait
+CVE-2010-4243   uselib	execve	execveat
+CVE-2019-11815  clone	unshare
+CVE-2013-1959   write
+CVE-2015-8543   socket
+CVE-2017-17712  sendto	sendmsg
+CVE-2013-1979   recvfrom	recvmsg
+CVE-2016-4998   setsockopt
+CVE-2016-4997   setsockopt
+CVE-2016-3134   setsockopt
+CVE-2017-18509  setsockopt	getsockopt
+CVE-2017-14954  waitid
+CVE-2014-5207   mount
+CVE-2018-12233  setxattr
+CVE-2016-0728   keyctl
+CVE-2014-9529   keyctl
+CVE-2019-13272  ptrace
+CVE-2018-1000199        ptrace
+CVE-2014-4699   fork	clone	ptrace
+CVE-2014-7970   pivot_root
+CVE-2019-10125  io_submit
+CVE-2017-6001   perf_event_open
+CVE-2016-2383   bpf
+CVE-2018-11508  adjtimex
