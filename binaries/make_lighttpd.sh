@@ -1,5 +1,7 @@
 #!/bin/sh
 
+useradd lighttpd -g lighttpd -s /sbin/nologin -M
+groupadd lighttpd
 tar -xvf lighttpd-1.4.54.tar.gz
 cd lighttpd-1.4.54/
 

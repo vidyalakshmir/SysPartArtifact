@@ -1,3 +1,6 @@
+dpkg -i build_files/bind/libcap2-dbgsym_2.25-1.2_amd64.ddeb 
+groupadd bind
+useradd bind -g bind -s /sbin/nologin -M
 tar -xvf libuv-1.34.0.tar.gz
 cd libuv-1.34.0
 sh autogen.sh 
@@ -30,8 +33,8 @@ mv temp.txt $CURDIR2/etc/named.conf.options
 
 mkdir $CURDIR2/var/cache
 mkdir $CURDIR2/var/run
-sudo chown bind:bind $CURDIR2/var/cache
-sudo chown bind:bind $CURDIR2/var/run
-sudo chown bind:bind $CURDIR2/lib
+chown bind:bind $CURDIR2/var/cache
+chown bind:bind $CURDIR2/var/run
+chown bind:bind $CURDIR2/lib
 
 
