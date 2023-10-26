@@ -32,7 +32,7 @@ ct=$(awk {'print $1'} $OUT/bind/at.out | sort | uniq | wc -l)
 ((ct=ct-1))
 echo $ct
 
-cat "GENERATING SYSCALL FILTER FOR HTTPD .. "
+echo "GENERATING SYSCALL FILTER FOR HTTPD .. "
 src/scripts/parse_typearmor.sh $OUT/httpd/typearmor/
 ./syspart -p $HTTPD -i -s main -t ../../outputs/httpd/typearmor/typearmor_parsed.txt -a 2,7a378,child_main > $OUT/httpd/syscalls.out
 ./syspart -p $HTTPD -i -s main -t ../../outputs/httpd/typearmor/typearmor_parsed.txt -a 7,child_main > $OUT/httpd/serving_syscalls.out
