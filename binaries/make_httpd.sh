@@ -1,5 +1,5 @@
-dpkg -i binaries/build_files/httpd/libexpat1-dbgsym_2.2.5-3ubuntu0.9_amd64.ddeb
-dpkg -i binaries/build_files/httpd/libuuid1-dbgsym_2.31.1-0.4ubuntu3.7_amd64.ddeb
+sudo dpkg -i binaries/build_files/httpd/libexpat1-dbgsym_2.2.5-3ubuntu0.9_amd64.ddeb
+sudo dpkg -i binaries/build_files/httpd/libuuid1-dbgsym_2.31.1-0.4ubuntu3.7_amd64.ddeb
 tar -xvf apr-1.7.0.tar.gz
 cd apr-1.7.0
 APR_DIR=$(pwd)

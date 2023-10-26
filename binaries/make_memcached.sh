@@ -1,6 +1,6 @@
-dpkg -i libsasl2-2-dbgsym_2.1.27~101-g0780600+dfsg-3ubuntu2.4_amd64.ddeb
-groupadd memcached
-useradd memcache -g memcached -s /sbin/nologin -M
+sudo dpkg -i libsasl2-2-dbgsym_2.1.27~101-g0780600+dfsg-3ubuntu2.4_amd64.ddeb
+sudo groupadd memcached
+sudo useradd memcache -g memcached -s /sbin/nologin -M
 tar -xvf libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 LIBEVENT_DIR=$(pwd)
