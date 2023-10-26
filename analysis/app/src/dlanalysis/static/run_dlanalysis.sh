@@ -22,8 +22,8 @@ do
         echo "./syspart -p ${BINARY[i]} -i -t $OUT_PATH/${BINARY_NAME[i]}/typearmor/typearmor_parsed.txt -s main -a 6,dlsym,6"
         ../../../syspart -p ${BINARY[i]} -i -t $OUT_PATH/$i/typearmor/typearmor_parsed.txt -s main -a 6,dlsym,6 > $DLOUT/dlsym_static.txt && echo OK
 
-        ./generate_libnames.sh $i
+        ./generate_libnames.sh ${BINARY_NAME[i]}
         echo "src/dlanalysis/static/match_libs_with_syms.sh $DLOUT/dlsym_static.txt > $DLOUT/libraries_matching_syms.txt"
-        ./match_libs_with_syms.sh $DLOUT/dlsym_static.txt $i > $DLOUT/libraries_matching_syms.txt && echo OK
+        ./match_libs_with_syms.sh $DLOUT/dlsym_static.txt ${BINARY_NAME[i]} > $DLOUT/libraries_matching_syms.txt && echo OK
         ../../../syspart -p ${BINARY[i]} -i -s main -a 8,$DLOUT/$I/libraries_matching_syms.txt && echo OK
 done
