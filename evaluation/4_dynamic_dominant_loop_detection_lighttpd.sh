@@ -1,7 +1,7 @@
 cd ../analysis/app
 base_dir=$(dirname $(dirname $(pwd)))
 OUT="$base_dir/outputs"
-PIN_ROOT="$base_dir/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
+export PIN_ROOT="$base_dir/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
 cd src/pintool
 make
 echo ""
