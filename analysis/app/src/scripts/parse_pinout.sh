@@ -19,9 +19,6 @@ do
 			multithread=1
 		fi
 	fi
-	echo $pid
-	echo $tid
-	echo $fname
 	out1=$(sort -r -k 1,1 $f | head -1 | awk {'print $4 "\t" $3'})
 	offset=$(sort -r -k 1,1 $f | head -1 | awk {'print $3'})
 	funcname=$(sort -r -k 1,1 $f | head -1 | awk {'print $4'})
