@@ -61,7 +61,7 @@ echo "GENERATING SYSCALL FILTER FOR LIGHTTPD .. "
 src/scripts/parse_typearmor.sh $OUT/lighttpd/typearmor/
 ./syspart -p $LIGHTTPD -i -s main -t ../../outputs/lighttpd/typearmor/typearmor_parsed.txt -a 2,c32a,main > $OUT/lighttpd/syscalls.out
 ./syspart -p $LIGHTTPD -i -s main -t ../../outputs/lighttpd/typearmor/typearmor_parsed.txt -a 7,server_main_loop > $OUT/lighttpd/serving_syscalls.out
-./syspart -p $LIGHTTPD -i -s main -t ../../outputs/httpd/typearmor/typearmor_parsed.txt -a 14 > $OUT/lighttpd/at.out
+./syspart -p $LIGHTTPD -i -s main -t ../../outputs/lighttpd/typearmor/typearmor_parsed.txt -a 14 > $OUT/lighttpd/at.out
 grep 'JSON' $OUT/lighttpd/syscalls.out | awk {'print $2'} > $OUT/lighttpd/syscalls.json
 grep 'PARTITION_SIZE' $OUT/lighttpd/syscalls.out | awk {'print $2'} > $OUT/lighttpd/partition_size.out
 grep -w 'MAIN' $OUT/lighttpd/syscalls.out | awk {'print $2'} > $OUT/lighttpd/main_syscalls.out
@@ -112,7 +112,7 @@ echo "GENERATING SYSCALL FILTER FOR NGINX .. "
 src/scripts/parse_typearmor.sh $OUT/nginx/typearmor/
 ./syspart -p $NGINX -i -s main -t ../../outputs/nginx/typearmor/typearmor_parsed.txt -a 2,45f06,ngx_worker_process_cycle > $OUT/nginx/syscalls.out
 ./syspart -p $NGINX -i -s main -t ../../outputs/nginx/typearmor/typearmor_parsed.txt -a 7,ngx_worker_process_cycle > $OUT/nginx/serving_syscalls.out
-./syspart -p $NGINX -i -s main -t ../../outputs/memcached/typearmor/typearmor_parsed.txt -a 14 > $OUT/nginx/at.out
+./syspart -p $NGINX -i -s main -t ../../outputs/nginx/typearmor/typearmor_parsed.txt -a 14 > $OUT/nginx/at.out
 grep 'JSON' $OUT/nginx/syscalls.out | awk {'print $2'} > $OUT/nginx/syscalls.json
 grep 'PARTITION_SIZE' $OUT/nginx/syscalls.out | awk {'print $2'} > $OUT/nginx/partition_size.out
 grep -w 'MAIN' $OUT/nginx/syscalls.out | awk {'print $2'} > $OUT/nginx/main_syscalls.out
@@ -130,6 +130,31 @@ echo -n "#Syscalls of main loop : "
 cat $OUT/nginx/mainloop_syscalls.out
 echo -n "#Syscalls directly accessible from AT : "
 ct=$(awk {'print $1'} $OUT/nginx/at.out | sort | uniq | wc -l)
+((ct=ct-1))
+echo $ct
+
+echo "GENERATING SYSCALL FILTER FOR REDIS .. "
+src/scripts/parse_typearmor.sh $OUT/redis/typearmor/
+./syspart -p $REDIS -i -s main -t ../../outputs/redis/typearmor/typearmor_parsed.txt -a 2,34d10,aeMain > $OUT/redis/syscalls.out
+./syspart -p $REDIS -i -s main -t ../../outputs/redis/typearmor/typearmor_parsed.txt -a 7,aeMain > $OUT/redis/serving_syscalls.out
+./syspart -p $REDIS -i -s main -t ../../outputs/redis/typearmor/typearmor_parsed.txt -a 14 > $OUT/redis/at.out
+grep 'JSON' $OUT/redis/syscalls.out | awk {'print $2'} > $OUT/redis/syscalls.json
+grep 'PARTITION_SIZE' $OUT/redis/syscalls.out | awk {'print $2'} > $OUT/redis/partition_size.out
+grep -w 'MAIN' $OUT/redis/syscalls.out | awk {'print $2'} > $OUT/redis/main_syscalls.out
+grep -w 'MAINLOOP' $OUT/redis/syscalls.out | awk {'print $2'} > $OUT/redis/mainloop_syscalls.out
+echo "REDIS RESULTS : "
+echo -n "Partition size : "
+cat $OUT/redis/partition_size.out
+echo -n "#Syscalls of main() : "
+cat $OUT/redis/main_syscalls.out
+
+echo -n "#Syscalls of serving phase : "
+grep SIZE $OUT/redis/serving_syscalls.out | awk {'print $2'}
+
+echo -n "#Syscalls of main loop : "
+cat $OUT/redis/mainloop_syscalls.out
+echo -n "#Syscalls directly accessible from AT : "
+ct=$(awk {'print $1'} $OUT/redis/at.out | sort | uniq | wc -l)
 ((ct=ct-1))
 echo $ct
 

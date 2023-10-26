@@ -175,8 +175,7 @@ void NSSFuncsPass::loadConf() {
             if (lib[0] == '[') continue;
             if(lib == "compat" || lib =="db" || lib == "dns" || lib == "files" || lib =="hesiod" || lib =="nis" || lib == "nisplus") //These are the libnss libraries provide in glibc-2.24
                 liblist.push_back(lib);
-            //if(lib == "compat" || lib == "dns" || lib == "files" || lib =="hesiod" || lib =="nis" || lib == "nisplus") //These are the libnss libraries provide in glibc-2.27
-            //    liblist.push_back(lib);
+            
         }
     }
 }

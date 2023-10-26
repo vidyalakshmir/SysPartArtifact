@@ -3,7 +3,6 @@
 cd ../analysis/app
 base_dir=$(dirname $(dirname $(pwd)))
 OUT="$base_dir/outputs"
-PIN_ROOT="$base_dir/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
 
 mkdir -p $OUT/bind/syscall_results
 sed 's/\[//' $OUT/bind/syscalls.json | sed 's/\]//' | sed 's/,/\n/g' > $OUT/bind/syscall_results/mainloop_sysno.txt
