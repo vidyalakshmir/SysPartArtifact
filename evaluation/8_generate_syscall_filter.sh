@@ -2,8 +2,10 @@ cd ../analysis/app
 cp ../tools/src_files/elfdynamic_libc_2.24.cpp ../tools/egalito/src/elf/elfdynamic.cpp
 cp ../tools/src_files/nss_libc_2.24.cpp src/nss.cpp
 make
+base_dir=$(dirname $(dirname $(pwd)))
+OUT="$base_dir/outputs"
+PIN_ROOT="$base_dir/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
 
-export OUT=/home/syspart/SysPartArtifact/outputs
 
 echo "GENERATING SYSCALL FILTER FOR BIND .. "
 src/scripts/parse_typearmor.sh $OUT/bind/typearmor/

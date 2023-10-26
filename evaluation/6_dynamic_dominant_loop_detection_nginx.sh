@@ -1,6 +1,9 @@
 cd ../analysis/app
-export OUT=/home/syspart/SysPartArtifact/outputs
-export PIN_ROOT=/home/syspart/SysPartArtifact/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux
+
+base_dir=$(dirname $(dirname $(pwd)))
+OUT="$base_dir/outputs"
+PIN_ROOT="$base_dir/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
+
 cd src/pintool
 echo ""
 echo "Running dominant loop analysis on"

@@ -1,32 +1,33 @@
 #!/bin/bash
 
-input_file="kernel_eval/kernel_cve.out"
 cd ../analysis/app
+base_name=$(dirname $(dirname $(pwd)))
+input_file="$base_name/evaluation/kernel_eval/kernel_cve.out"
 sf_folders=(
-"/home/syspart/SysPartArtifact/related_work/sf/bind/"
-"/home/syspart/SysPartArtifact/related_work/sf/httpd"
-"/home/syspart/SysPartArtifact/related_work/sf/lighttpd"
-"/home/syspart/SysPartArtifact/related_work/sf/memcached"
-"/home/syspart/SysPartArtifact/related_work/sf/nginx"
-"/home/syspart/SysPartArtifact/related_work/sf/redis"
+"$base_name/related_work/sf/bind/"
+"$base_name/related_work/sf/httpd"
+"$base_name/related_work/sf/lighttpd"
+"$base_name/related_work/sf/memcached"
+"$base_name/related_work/sf/nginx"
+"$base_name/related_work/sf/redis"
 )
 
 sp_folders=(
-"/home/syspart/SysPartArtifact/outputs/bind/syscall_results"
-"/home/syspart/SysPartArtifact/outputs/httpd/syscall_results"
-"/home/syspart/SysPartArtifact/outputs/lighttpd/syscall_results"
-"/home/syspart/SysPartArtifact/outputs/memcached/syscall_results"
-"/home/syspart/SysPartArtifact/outputs/nginx/syscall_results"
-"/home/syspart/SysPartArtifact/outputs/redis/syscall_results"
+"$base_name/outputs/bind/syscall_results"
+"$base_name/outputs/httpd/syscall_results"
+"$base_name/outputs/lighttpd/syscall_results"
+"$base_name/outputs/memcached/syscall_results"
+"$base_name/outputs/nginx/syscall_results"
+"$base_name/outputs/redis/syscall_results"
 )
 
 tsp_folders=(
-"/home/syspart/SysPartArtifact/related_work/tsp/bind"
-"/home/syspart/SysPartArtifact/related_work/tsp/httpd"
-"/home/syspart/SysPartArtifact/related_work/tsp/lighttpd"
-"/home/syspart/SysPartArtifact/related_work/tsp/memcached"
-"/home/syspart/SysPartArtifact/related_work/tsp/nginx"
-"/home/syspart/SysPartArtifact/related_work/tsp/redis"
+"$base_name/related_work/tsp/bind"
+"$base_name/related_work/tsp/httpd"
+"$base_name/related_work/tsp/lighttpd"
+"$base_name/related_work/tsp/memcached"
+"$base_name/related_work/tsp/nginx"
+"$base_name/related_work/tsp/redis"
 )
 echo " "
 echo "Results of Table 3 from paper"
