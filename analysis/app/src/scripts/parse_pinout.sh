@@ -30,6 +30,9 @@ do
 	((i=i+1))	
 done
 
+echo " "
+echo "Output written to $outdir/pin.out"
+echo "***** OUTPUT ********"
 if [ $multiprocess == 0 ] && [ $multithread == 0 ]; then
 	echo "The server is single process and single-threaded" >> $outdir/pin.out
 elif [ $multiprocess == 1 ] && [ $multithread == 1 ]; then
