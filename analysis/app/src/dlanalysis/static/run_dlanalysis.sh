@@ -4,7 +4,9 @@
 #BIN_PATH=$1
 script_dir=$(dirname "$(realpath "$0")")
 cp $script_dir/../../../../tools/src_files/nss_libc_2.27.cpp $script_dir/../../nss.cpp
+cd $script_dir/../../../
 make
+cd app/src/dlanalysis/static
 OUT_PATH=$script_dir/../../../../../outputs
 
 BINARY_NAME=(redis nginx httpd lighttpd memcached bind)
