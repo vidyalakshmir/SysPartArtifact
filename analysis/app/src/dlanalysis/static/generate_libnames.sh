@@ -1,7 +1,8 @@
 #!/bin/bash
 app=$1
-pathfile="src/dlanalysis/pathlist_$app.txt"
-file1="src/dlanalysis/all_libs_$app.txt"
+script_dir=$(dirname "$0")
+pathfile="$script_dir/../pathlist_$app.txt"
+file1="$script_dir/../all_libs_$app.txt"
 rm -f $file1
 while IFS= read -r line
 do
@@ -10,7 +11,7 @@ done < "$pathfile"
 
 
 
-file2="src/dlanalysis/unique_libs_$app.txt"
+file2="$script_dir/../unique_libs_$app.txt"
 rm -f $file2
 declare -A fnames
 i=0

@@ -1,8 +1,9 @@
 #!/bin/bash
 f=$1
 app=$2
+script_dir=$(dirname "$0")
 
-myfile="src/dlanalysis/unique_libs_$app.txt"
+myfile="$script_dir/../unique_libs_$app.txt"
 
 while IFS= read -r line
 do
