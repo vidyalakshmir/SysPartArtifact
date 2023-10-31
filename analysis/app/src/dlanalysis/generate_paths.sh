@@ -17,10 +17,10 @@ echo "/lib/x86_64-linux-gnu" > pathlist_memcached.txt
 echo $pathdir3 >> pathlist_memcached.txt
 pathdir4=$dir1"/bind9"
 echo "/lib/x86_64-linux-gnu" > pathlist_bind.txt
-echo $pathdir4 >> pathlist_named.txt
+echo $pathdir4 >> pathlist_bind.txt
 pathdir5=$dir1"/nginx-1.17.1"
 echo "/lib/x86_64-linux-gnu" > pathlist_nginx.txt
 echo $pathdir5 >> pathlist_nginx.txt
 pathdir6=$dir1"/redis-5.0.7"
 echo "/lib/x86_64-linux-gnu" > pathlist_redis.txt
-echo $pathdir6 >> pathlist_redis-server.txt
+echo $pathdir6 >> pathlist_redis.txt
