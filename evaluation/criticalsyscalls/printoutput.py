@@ -25,29 +25,29 @@ for s in servers:
 			if cs in splist:
 				if cs in tsplist: #Not filtered by any
 					print(cs + "\t" + s + "\tNONE")
-					file.write(cs + "\t" + s + "\tNONE")
+					file.write(cs + "\t" + s + "\tNONE\n")
 				else:			  #Filtered only by TSP 
 					print(cs + "\t" + s + "\tTSP")
-					file.write(cs + "\t" + s + "\tTSP")
+					file.write(cs + "\t" + s + "\tTSP\n")
 			elif cs in tsplist:  #Filtered only by SP
 				print(cs + "\t" + s + "\tSP") 
-				file.write(cs + "\t" + s + "\tSP")
+				file.write(cs + "\t" + s + "\tSP\n")
 			else: 				#Filtered by SP & TSP, not by SF
 				print(cs + "\t" + s + "\tTSP_SP")
-				file.write(cs + "\t" + s + "\tTSP_SP")
+				file.write(cs + "\t" + s + "\tTSP_SP\n")
 		elif cs in splist:
 			if cs in tsplist:	#Filtered by all
 				print(cs + "\t" + s + "\tSF") #Filtered only by SF
-				file.write(cs + "\t" + s + "\tSF")
+				file.write(cs + "\t" + s + "\tSF\n")
 			else:
 				print(cs + "\t" + s + "\tTSP_SF") #Filtered by SF & TSP
-				file.write(cs + "\t" + s + "\tTSP_SF")
+				file.write(cs + "\t" + s + "\tTSP_SF\n")
 		else:
 			if cs in tsplist:	#Filtered by all
 				print(cs + "\t" + s + "\tSF_SP") #Filtered only by SF & SP
-				file.write(cs + "\t" + s + "\tSF_SP")
+				file.write(cs + "\t" + s + "\tSF_SP\n")
 			else:
 				print(cs + "\t" + s + "\tALL") #Filtered by all
-				file.write(cs + "\t" + s + "\tALL")
+				file.write(cs + "\t" + s + "\tALL\n")
 
 file.close()
