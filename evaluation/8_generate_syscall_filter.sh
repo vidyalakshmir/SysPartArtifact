@@ -158,27 +158,27 @@ ct=$(awk {'print $1'} $OUT/redis/at.out | sort | uniq | wc -l)
 ((ct=ct-1))
 echo $ct
 
-bind_tsp=$(wc -l $OUT/related_work/tsp/bind/mainloop.txt | awk {'print $1'})
+bind_tsp=$(wc -l ../related_work/tsp/bind/mainloop.txt | awk {'print $1'})
 bind_sp=$(cat $OUT/bind/mainloop_syscalls.out)
 result_bind=$(echo "scale=2; (($bind_tsp - $bind_sp) * 100) / $bind_tsp" | bc)
 
-httpd_tsp=$(wc -l $OUT/related_work/tsp/httpd/mainloop.txt | awk {'print $1'})
+httpd_tsp=$(wc -l ../related_work/tsp/httpd/mainloop.txt | awk {'print $1'})
 httpd_sp=$(grep SIZE $OUT/httpd/serving_syscalls.out | awk '{print $2}')
 result_httpd=$(echo "scale=2; (($httpd_tsp - $httpd_sp) * 100) / $httpd_tsp" | bc)
 
-lighttpd_tsp=$(wc -l $OUT//related_work/tsp/lighttpd/mainloop.txt | awk {'print $1'})
+lighttpd_tsp=$(wc -l ../related_work/tsp/lighttpd/mainloop.txt | awk {'print $1'})
 lighttpd_sp=$(grep SIZE $OUT/lighttpd/serving_syscalls.out | awk '{print $2}')
 result_lighttpd=$(echo "scale=2; (($lighttpd_tsp - $lighttpd_sp) * 100) / $lighttpd_tsp" | bc)
 
-memcached_tsp=$(wc -l $OUT/related_work/tsp/memcached/mainloop.txt | awk {'print $1'})
+memcached_tsp=$(wc -l ../related_work/tsp/memcached/mainloop.txt | awk {'print $1'})
 memcached_sp=$(grep SIZE $OUT/memcached/serving_syscalls.out | awk '{print $2}')
 result_memcached=$(echo "scale=2; (($memcached_tsp - $memcached_sp) * 100) / $memcached_tsp" | bc)
 
-nginx_tsp=$(wc -l $OUT/related_work/tsp/nginx/mainloop.txt | awk {'print $1'})
+nginx_tsp=$(wc -l ../related_work/tsp/nginx/mainloop.txt | awk {'print $1'})
 nginx_sp=$(grep SIZE $OUT/nginx/serving_syscalls.out | awk '{print $2}')
 result_nginx=$(echo "scale=2; (($nginx_tsp - $nginx_sp) * 100) / $nginx_tsp" | bc)
 
-redis_tsp=$(wc -l $OUT/related_work/tsp/redis/mainloop.txt | awk {'print $1'})
+redis_tsp=$(wc -l ../related_work/tsp/redis/mainloop.txt | awk {'print $1'})
 redis_sp=$(grep SIZE $OUT/redis/serving_syscalls.out | awk '{print $2}')
 result_redis=$(echo "scale=2; (($redis_tsp - $redis_sp) * 100) / $redis_tsp" | bc)
 
