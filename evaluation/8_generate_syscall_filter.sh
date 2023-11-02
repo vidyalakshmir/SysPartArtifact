@@ -158,34 +158,30 @@ ct=$(awk {'print $1'} $OUT/redis/at.out | sort | uniq | wc -l)
 ((ct=ct-1))
 echo $ct
 
-tsp_sum=0
+bind_tsp=$(wc -l $OUT/related_work/tsp/bind/mainloop.txt | awk {'print $1'})
+bind_sp=$(cat $OUT/bind/mainloop_syscalls.out)
+result_bind=$(echo "scale=2; (($bind_tsp - $bind_sp) * 100) / $bind_tsp" | bc)
 
-# Execute commands and calculate sum
-while IFS= read -r line; do
-    tsp_sum=$((tsp_sum + line))
-done < <(
-    grep SIZE $OUT/bind/serving_syscalls.out | awk '{print $2}'
-    grep SIZE $OUT/httpd/serving_syscalls.out | awk '{print $2}'
-    grep SIZE $OUT/lighttpd/serving_syscalls.out | awk '{print $2}'
-    grep SIZE $OUT/memcached/serving_syscalls.out | awk '{print $2}'
-    grep SIZE $OUT/nginx/serving_syscalls.out | awk '{print $2}'
-    grep SIZE $OUT/redis/serving_syscalls.out | awk '{print $2}'
-)
+httpd_tsp=$(wc -l $OUT/related_work/tsp/httpd/mainloop.txt | awk {'print $1'})
+httpd_sp=$(grep SIZE $OUT/httpd/serving_syscalls.out | awk '{print $2}')
+result_httpd=$(echo "scale=2; (($httpd_tsp - $httpd_sp) * 100) / $httpd_tsp" | bc)
 
-sp_sum=0
+lighttpd_tsp=$(wc -l $OUT//related_work/tsp/lighttpd/mainloop.txt | awk {'print $1'})
+lighttpd_sp=$(grep SIZE $OUT/lighttpd/serving_syscalls.out | awk '{print $2}')
+result_lighttpd=$(echo "scale=2; (($lighttpd_tsp - $lighttpd_sp) * 100) / $lighttpd_tsp" | bc)
 
-# Execute commands and calculate sum
-while IFS= read -r line; do
-    sp_sum=$((sp_sum + line))
-done < <(
-    cat $OUT/bind/mainloop_syscalls.out
-    cat $OUT/httpd/mainloop_syscalls.out
-    cat $OUT/lighttpd/mainloop_syscalls.out
-    cat $OUT/memcached/mainloop_syscalls.out
-    cat $OUT/nginx/mainloop_syscalls.out
-    cat $OUT/redis/mainloop_syscalls.out
-)
+memcached_tsp=$(wc -l $OUT/related_work/tsp/memcached/mainloop.txt | awk {'print $1'})
+memcached_sp=$(grep SIZE $OUT/memcached/serving_syscalls.out | awk '{print $2}')
+result_memcached=$(echo "scale=2; (($memcached_tsp - $memcached_sp) * 100) / $memcached_tsp" | bc)
 
-result=$(( ((tsp_sum - sp_sum) * 100) / tsp_sum ))
+nginx_tsp=$(wc -l $OUT/related_work/tsp/nginx/mainloop.txt | awk {'print $1'})
+nginx_sp=$(grep SIZE $OUT/nginx/serving_syscalls.out | awk '{print $2}')
+result_nginx=$(echo "scale=2; (($nginx_tsp - $nginx_sp) * 100) / $nginx_tsp" | bc)
+
+redis_tsp=$(wc -l $OUT/related_work/tsp/redis/mainloop.txt | awk {'print $1'})
+redis_sp=$(grep SIZE $OUT/redis/serving_syscalls.out | awk '{print $2}')
+result_redis=$(echo "scale=2; (($redis_tsp - $redis_sp) * 100) / $redis_tsp" | bc)
+
+result=$(echo "scale=2; ($result_bind + $result_httpd + $result_lighttpd + $result_memcached + $result_nginx + $result_redis) / 6" | bc)
 
 echo "SYSPART allows $result % syscalls than TSP"
