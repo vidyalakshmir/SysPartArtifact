@@ -158,3 +158,34 @@ ct=$(awk {'print $1'} $OUT/redis/at.out | sort | uniq | wc -l)
 ((ct=ct-1))
 echo $ct
 
+tsp_sum=0
+
+# Execute commands and calculate sum
+while IFS= read -r line; do
+    tsp_sum=$((tsp_sum + line))
+done < <(
+    grep SIZE $OUT/bind/serving_syscalls.out | awk '{print $2}'
+    grep SIZE $OUT/httpd/serving_syscalls.out | awk '{print $2}'
+    grep SIZE $OUT/lighttpd/serving_syscalls.out | awk '{print $2}'
+    grep SIZE $OUT/memcached/serving_syscalls.out | awk '{print $2}'
+    grep SIZE $OUT/nginx/serving_syscalls.out | awk '{print $2}'
+    grep SIZE $OUT/redis/serving_syscalls.out | awk '{print $2}'
+)
+
+sp_sum=0
+
+# Execute commands and calculate sum
+while IFS= read -r line; do
+    sp_sum=$((sp_sum + line))
+done < <(
+    cat $OUT/bind/mainloop_syscalls.out
+    cat $OUT/httpd/mainloop_syscalls.out
+    cat $OUT/lighttpd/mainloop_syscalls.out
+    cat $OUT/memcached/mainloop_syscalls.out
+    cat $OUT/nginx/mainloop_syscalls.out
+    cat $OUT/redis/mainloop_syscalls.out
+)
+
+result=$(( ((tsp_sum - sp_sum) * 100) / tsp_sum ))
+
+echo "SYSPART allows $result % syscalls than TSP"
