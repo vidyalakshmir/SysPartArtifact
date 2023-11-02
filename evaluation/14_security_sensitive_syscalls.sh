@@ -87,3 +87,16 @@ awk '{print "SP " $0}' 1.out >> criticalsyscalls.out
 rm -f 1.out
 
 python3 printoutput.py criticalsyscalls.out
+
+total_cases=102
+tsp_only=$(grep -w TSP output.log | wc -l)
+sp_only=$(grep -w SP output.log | wc -l)
+sum=$(($tsp_only + $sp_only))
+div=$(echo "scale=4; ($sum/$total_cases)" | bc)
+same=$(echo "scale=2; (100-($div*100))" | bc)
+echo "SP performs as well as TSP in $same% cases"
+div1=$(echo "scale=4; ($sp_only/$total_cases)" | bc)
+outperforms=$(echo "scale=2; $div1*100" | bc)
+
+echo "SP outperform TSP in $outperforms % cases"
+
