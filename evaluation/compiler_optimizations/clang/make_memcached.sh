@@ -9,7 +9,7 @@ mkdir -p output/memcached/1/pin
 mkdir -p output/memcached/2/pin
 mkdir -p output/memcached/3/pin
 
-tar -xvf memcached.tar.gz
+tar -xvf ../zips/memcached.tar.gz
 cd memcached
 export CC=clang  
 export AR=llvm-ar 
@@ -23,7 +23,7 @@ make install
 cd ..
 rm -rf memcached
 
-tar -xvf memcached.tar.gz
+tar -xvf ../zips/memcached.tar.gz
 cd memcached
 export CC=clang  
 export AR=llvm-ar 
@@ -36,7 +36,7 @@ make install
 cd ..
 rm -rf memcached
 
-tar -xvf memcached.tar.gz
+tar -xvf ../zips/memcached.tar.gz
 cd memcached
 export CC=clang  
 export AR=llvm-ar 
@@ -49,7 +49,7 @@ make install
 cd ..
 rm -rf memcached
 
-tar -xvf memcached.tar.gz
+tar -xvf ../zips/memcached.tar.gz
 cd memcached
 export CC=clang  
 export AR=llvm-ar 

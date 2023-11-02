@@ -9,7 +9,7 @@ mkdir -p output/bind/1/pin
 mkdir -p output/bind/2/pin
 mkdir -p output/bind/3/pin
 
-tar -xvf bind9.tar.gz
+tar -xvf ../zips/bind9.tar.gz
 cd bind9/
 export PKG_CONFIG_PATH=$BASEDIR/libuv/0/libuv-1.34.0/
 export CFLAGS="-O0"
@@ -35,7 +35,7 @@ sudo chown bind:bind $CURDIR2/var/cache
 sudo chown bind:bind $CURDIR2/var/run
 sudo chown bind:bind $CURDIR2/lib
 
-tar -xvf bind9.tar.gz
+tar -xvf ../zips/bind9.tar.gz
 cd bind9/
 export PKG_CONFIG_PATH=$BASEDIR/libuv/1/libuv-1.34.0/
 export CFLAGS="-O1"
@@ -61,7 +61,7 @@ sudo chown bind:bind $CURDIR2/var/cache
 sudo chown bind:bind $CURDIR2/var/run
 sudo chown bind:bind $CURDIR2/lib
 
-tar -xvf bind9.tar.gz
+tar -xvf ../zips/bind9.tar.gz
 cd bind9/	
 export PKG_CONFIG_PATH=$BASEDIR/libuv/2/libuv-1.34.0
 export CFLAGS="-O2"
@@ -87,7 +87,7 @@ sudo chown bind:bind $CURDIR2/var/cache
 sudo chown bind:bind $CURDIR2/var/run
 sudo chown bind:bind $CURDIR2/lib
 
-tar -xvf bind9.tar.gz
+tar -xvf ../zips/bind9.tar.gz
 cd bind9/
 export PKG_CONFIG_PATH=$BASEDIR/libuv/3/libuv-1.34.0
 export CFLAGS="-O3"

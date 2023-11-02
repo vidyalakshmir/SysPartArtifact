@@ -6,7 +6,7 @@ mkdir -p libuv/2
 mkdir -p libuv/3
 
 cd libuv/0
-tar -xvf ../../libuv-1.34.0.tar.gz
+tar -xvf ../../../zips/libuv-1.34.0.tar.gz
 cd libuv-1.34.0
 export CC=clang  
 export AR=llvm-ar 
@@ -22,7 +22,7 @@ make install
 cd ../../
 
 cd 1
-tar -xvf ../../libuv-1.34.0.tar.gz
+tar -xvf ../../../zips/libuv-1.34.0.tar.gz
 cd libuv-1.34.0
 export CC=clang  
 export AR=llvm-ar 
@@ -37,7 +37,7 @@ make install
 cd ../../
 
 cd 2
-tar -xvf ../../libuv-1.34.0.tar.gz
+tar -xvf ../../../zips/libuv-1.34.0.tar.gz
 cd libuv-1.34.0
 export CC=clang  
 export AR=llvm-ar 
@@ -52,7 +52,7 @@ make install
 cd ../../
 
 cd 3
-tar -xvf ../../libuv-1.34.0.tar.gz
+tar -xvf ../../../zips/libuv-1.34.0.tar.gz
 cd libuv-1.34.0
 export CC=clang  
 export AR=llvm-ar 

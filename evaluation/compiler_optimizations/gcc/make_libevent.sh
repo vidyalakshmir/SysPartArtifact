@@ -9,7 +9,7 @@ mkdir -p binaries/libevent/2/
 mkdir -p binaries/libevent/3
 
 cd libevent/0
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CFLAGS="-O0"
 ./configure --prefix=$BASEDIR/binaries/libevent/0
@@ -18,7 +18,7 @@ make install
 cd ../../
 
 cd 1
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CFLAGS="-O1"
 ./configure --prefix=$BASEDIR/binaries/libevent/1
@@ -28,7 +28,7 @@ cd ../../
 
 
 cd 2
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CFLAGS="-O2"
 ./configure --prefix=$BASEDIR/binaries/libevent/2
@@ -37,7 +37,7 @@ make install
 cd ../../
 
 cd 3
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CFLAGS="-O3"
 ./configure --prefix=$BASEDIR/binaries/libevent/3

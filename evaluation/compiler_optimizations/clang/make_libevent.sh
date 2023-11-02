@@ -9,7 +9,7 @@ mkdir -p binaries/libevent/2/
 mkdir -p binaries/libevent/3
 
 cd libevent/0
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CC=clang  
 export AR=llvm-ar 
@@ -23,7 +23,7 @@ make install
 cd ../../
 
 cd 1
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CC=clang  
 export AR=llvm-ar 
@@ -37,7 +37,7 @@ cd ../../
 
 
 cd 2
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CC=clang  
 export AR=llvm-ar 
@@ -50,7 +50,7 @@ make install
 cd ../../
 
 cd 3
-tar -xvf ../../libevent-2.1.11-stable.tar.gz
+tar -xvf ../../../zips/libevent-2.1.11-stable.tar.gz
 cd libevent-2.1.11-stable
 export CC=clang  
 export AR=llvm-ar 
