@@ -13,3 +13,16 @@ echo "export NGINX=$binary" >> ~/.bashrc
 binary=$cur_dir/redis-5.0.7/src/redis-server
 echo "export REDIS=$binary" >> ~/.bashrc
 source ~/.bashrc
+
+echo "deb http://ddebs.ubuntu.com $(lsb_release -cs) main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-updates main restricted universe multiverse
+deb http://ddebs.ubuntu.com $(lsb_release -cs)-proposed main restricted universe multiverse" | sudo tee -a /etc/apt/sources.list.d/ddebs.list
+
+sudo apt install ubuntu-dbgsym-keyring
+sudo apt-get update
+
+sudo apt install libexpat1-dbgsym
+sudo apt install libpcre3-dbg
+sudo apt install libsasl2-2-dbgsym
+sudo apt install llvm
+

@@ -10,7 +10,7 @@ mkdir -p output/lighttpd/3/pin
 tar -xvf ../zips/lighttpd-1.4.54.tar.gz
 cd lighttpd-1.4.54/
 export CFLAGS="-O0"
-CURDIR=$(BASEDIR)/binaries/lighttpd/0
+CURDIR=$BASEDIR/binaries/lighttpd/0
 ./configure --prefix=$CURDIR
 make 
 make install
@@ -21,7 +21,7 @@ cd binaries/lighttpd/0
 
 mkdir config log webpages cache run
 sudo chown lighttpd log
-cp -r $(BASEDIR)/../../binaries/build_files/lighttpd/* config/
+cp -r $BASEDIR/../../../binaries/build_files/lighttpd/* config/
 sed "s#TOFILL#$CURDIR#g" config/lighttpd.conf > temp.txt
 mv temp.txt config/lighttpd.conf
 sed "s#TOFILL#$CURDIR#g" config/conf.d/Makefile > temp.txt
@@ -35,7 +35,7 @@ rm -rf lighttpd-1.4.54/
 tar -xvf ../zips/lighttpd-1.4.54.tar.gz
 cd lighttpd-1.4.54/
 export CFLAGS="-O1"
-CURDIR=$(BASEDIR)/binaries/lighttpd/1
+CURDIR=$BASEDIR/binaries/lighttpd/1
 ./configure --prefix=$CURDIR
 make 
 make install
@@ -46,7 +46,7 @@ cd binaries/lighttpd/1
 
 mkdir config log webpages cache run
 sudo chown lighttpd log
-cp -r $(BASEDIR)/../../binaries/build_files/lighttpd/* config/
+cp -r $BASEDIR/../../../binaries/build_files/lighttpd/* config/
 sed "s#TOFILL#$CURDIR#g" config/lighttpd.conf > temp.txt
 mv temp.txt config/lighttpd.conf
 sed "s#TOFILL#$CURDIR#g" config/conf.d/Makefile > temp.txt
@@ -60,7 +60,7 @@ tar -xvf ../zips/lighttpd-1.4.54.tar.gz
 cd lighttpd-1.4.54/
 export CFLAGS="-O2"
 
-CURDIR=$(BASEDIR)/binaries/lighttpd/2
+CURDIR=$BASEDIR/binaries/lighttpd/2
 ./configure --prefix=$CURDIR
 
 make 
@@ -72,7 +72,7 @@ cd binaries/lighttpd/2
 
 mkdir config log webpages cache run
 sudo chown lighttpd log
-cp -r $(BASEDIR)/../../binaries/build_files/lighttpd/* config/
+cp -r $BASEDIR/../../../binaries/build_files/lighttpd/* config/
 sed "s#TOFILL#$CURDIR#g" config/lighttpd.conf > temp.txt
 mv temp.txt config/lighttpd.conf
 sed "s#TOFILL#$CURDIR#g" config/conf.d/Makefile > temp.txt
@@ -86,7 +86,7 @@ tar -xvf ../zips/lighttpd-1.4.54.tar.gz
 cd lighttpd-1.4.54/
 export CFLAGS="-O3"
 
-CURDIR=$(BASEDIR)/binaries/lighttpd/3
+CURDIR=$BASEDIR/binaries/lighttpd/3
 ./configure --prefix=$CURDIR
 
 make 
@@ -98,7 +98,7 @@ cd binaries/lighttpd/3
 
 mkdir config log webpages cache run
 sudo chown lighttpd log
-cp -r $(BASEDIR)/../../binaries/build_files/lighttpd/* config/
+cp -r $BASEDIR/../../../binaries/build_files/lighttpd/* config/
 sed "s#TOFILL#$CURDIR#g" config/lighttpd.conf > temp.txt
 mv temp.txt config/lighttpd.conf
 sed "s#TOFILL#$CURDIR#g" config/conf.d/Makefile > temp.txt
