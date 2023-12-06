@@ -5,9 +5,12 @@ BASEDIR=$(pwd)
 EVALDIR=$(dirname $BASEDIR)
 export PIN_ROOT="$EVALDIR/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
 
+if [[ "$app" == "redis" && "$compiler" == "clang" ]]
+then
+	cp ../analysis/tools/src_files/timeofouterloop_with_check.cpp ../analysis/app/src/pintool/timeofouterloop.cpp
+fi
 cd ../analysis/app/src/pintool
 make
-
 
 for i in 0 1 2 3; do     
 	if [[ "$app" == "bind" ]]           
@@ -118,4 +121,6 @@ for i in 0 1 2 3; do
 		cat $REDIS_OUT/pin.out
 	fi
 done
+
+cp ../analysis/tools/src_files/timeofouterloop.cpp ../analysis/app/src/pintool/timeofouterloop.cpp
 

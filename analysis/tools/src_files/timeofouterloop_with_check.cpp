@@ -373,7 +373,7 @@ VOID Instruction(INS ins, VOID *v)
 				ADDRINT offset; 
 		//FOR CLANG BINARIES
 		
-		if (im_name == "abyssws-x64" || im_name == "nginx"  im_name == "lighttpd" || im_name == "httpd" || im_name == "redis" || im_name == "bind" || im_name == "memcached")
+		if (im_name == "abyssws-x64" || im_name == "nginx" ||  im_name == "lighttpd" || im_name == "httpd" || im_name == "redis" || im_name == "bind" || im_name == "memcached")
 		{
 			*OutFile << "GGGG " << im_name << " " <<std::hex<<offset<<" "<<instr_address<<" "<<img_addr<<endl;
 			offset = instr_address;

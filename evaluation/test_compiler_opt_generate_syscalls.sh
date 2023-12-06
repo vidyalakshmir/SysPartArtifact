@@ -75,5 +75,65 @@ then
 	grep -w 'MAINLOOP' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/mainloop_syscalls.out
 	echo "System calls of mainloop of lighttpd with gcc and -O3 is :"
 	cat $LIGHTTPD_OUT/mainloop_syscalls.out
-fi
+elif [[ "$app" == "redis" ]]
+then
+        REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/0/redis-server
+        REDIS_OUT=$EVALDIR/outputs/redis/opt/$compiler/0
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $REDIS -s main -a 2,3615d,aeMain > $REDIS_OUT/syscalls.out
+        else
+                ./syspart -p $REDIS -s main -a 2,352f7,aeMain > $REDIS_OUT/syscalls.out
+        fi
+        grep 'JSON' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
+        grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of redis with gcc and -O0 is :"
+        cat $REDIS_OUT/mainloop_syscalls.out
 
+        REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/1/redis-server
+        REDIS_OUT=$EVALDIR/outputs/redis/opt/$compiler/1
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $REDIS -s main -a 2,33d03,aeMain > $REDIS_OUT/syscalls.out
+        else
+                ./syspart -p $REDIS -s main -a 2,43509,main > $REDIS_OUT/syscalls.out
+        fi
+        grep 'JSON' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
+        grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of redis with gcc and -O1 is :"
+        cat $REDIS_OUT/mainloop_syscalls.out
+
+         REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/2/redis-server
+        REDIS_OUT=$EVALDIR/outputs/redis/opt/$compiler/2
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $REDIS -s main -a 2,34aa0,aeMain > $REDIS_OUT/syscalls.out
+        else
+                ./syspart -p $REDIS -s main -a 2,4500e,main > $REDIS_OUT/syscalls.out
+        fi
+        grep 'JSON' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
+        grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of redis with gcc and -O2 is :"
+        cat $REDIS_OUT/mainloop_syscalls.out
+
+        REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/3/redis-server
+        REDIS_OUT=$EVALDIR/outputs/redis/opt/$compiler/3
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $REDIS -s main -a 2,39110,aeMain > $REDIS_OUT/syscalls.out
+        else
+                ./syspart -p $REDIS -s main -a 2,45e3e,main > $REDIS_OUT/syscalls.out
+        fi
+        grep 'JSON' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
+        grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of redis with gcc and -O3 is :"
+        cat $REDIS_OUT/mainloop_syscalls.out
+fi

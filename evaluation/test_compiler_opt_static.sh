@@ -35,11 +35,11 @@ for i in 0 1 2 3; do
                 export BINARYAPP=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/$i/redis-server
 		export OUT=$EVALDIR/outputs/redis/opt/$compiler/$i
 	fi
-       mkdir -p $OUT              
+       	mkdir -p $OUT              
 	echo "Running static loop analysis on $BINARYAPP"
 	./loops $BINARYAPP > $OUT/temp.out
-    grep '^FUNC' $OUT/temp.out > $OUT/functions.out
-    grep -v '^FUNC' $OUT/temp.out > $OUT/loops.out
+    	grep '^FUNC' $OUT/temp.out > $OUT/functions.out
+    	grep -v '^FUNC' $OUT/temp.out > $OUT/loops.out
 	echo "Output written to $OUT/loops.out"
 done
 
