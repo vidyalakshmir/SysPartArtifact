@@ -136,4 +136,65 @@ then
         grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
         echo "System calls of mainloop of redis with gcc and -O3 is :"
         cat $REDIS_OUT/mainloop_syscalls.out
+elif [[ "$app" == "memcached" ]]
+then
+        MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/0/bin/memcached
+        MEMCACHED_OUT=$EVALDIR/outputs/memcached/opt/$compiler/0
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $MEMCACHED -i -s main -a 2,25b32,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        else
+                ./syspart -p $MEMCACHED -i -s main -a 2,275a6,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        fi
+        grep 'JSON' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
+        grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of memcached with gcc and -O0 is :"
+        cat $MEMCACHED_OUT/mainloop_syscalls.out
+
+        MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/1/bin/memcached
+        MEMCACHED_OUT=$EVALDIR/outputs/memcached/opt/$compiler/1
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $MEMCACHED -i -s main -a 2,216d8,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        else
+                ./syspart -p $MEMCACHED -i -s main -a 2,1d1b0,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        fi
+        grep 'JSON' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
+        grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of memcached with gcc and -O1 is :"
+        cat $MEMCACHED_OUT/mainloop_syscalls.out
+
+         MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/2/bin/memcached
+        MEMCACHED_OUT=$EVALDIR/outputs/memcached/opt/$compiler/2
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $MEMCACHED -i -s main -a 2,2232b,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        else
+                ./syspart -p $MEMCACHED -i -s main -a 2,22b00,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        fi
+        grep 'JSON' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
+        grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of memcached with gcc and -O2 is :"
+        cat $MEMCACHED_OUT/mainloop_syscalls.out
+
+        MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/3/bin/memcached
+        MEMCACHED_OUT=$EVALDIR/outputs/memcached/opt/$compiler/3
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $MEMCACHED -i -s main -a 2,24c0b,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        else
+                ./syspart -p $MEMCACHED -i -s main -a 2,259f0,event_base_loop > $MEMCACHED_OUT/syscalls.out
+        fi
+        grep 'JSON' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
+        grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of memcached with gcc and -O3 is :"
+        cat $MEMCACHED_OUT/mainloop_syscalls.out
 fi

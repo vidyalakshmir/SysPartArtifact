@@ -8,6 +8,8 @@ export PIN_ROOT="$EVALDIR/analysis/tools/pin-3.11-97998-g7ecce2dac-gcc-linux"
 if [[ "$app" == "redis" && "$compiler" == "clang" ]]
 then
 	cp ../analysis/tools/src_files/timeofouterloop_with_check.cpp ../analysis/app/src/pintool/timeofouterloop.cpp
+else
+	cp ../analysis/tools/src_files/timeofouterloop.cpp ../analysis/app/src/pintool/timeofouterloop.cpp
 fi
 cd ../analysis/app/src/pintool
 make
@@ -122,5 +124,5 @@ for i in 0 1 2 3; do
 	fi
 done
 
-cp ../analysis/tools/src_files/timeofouterloop.cpp ../analysis/app/src/pintool/timeofouterloop.cpp
+cp ../../../tools/src_files/timeofouterloop.cpp timeofouterloop.cpp
 
