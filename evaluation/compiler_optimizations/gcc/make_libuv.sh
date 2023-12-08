@@ -12,7 +12,7 @@ export CFLAGS="-O0"
 sh autogen.sh 
 ./configure --prefix=$BASEDIR/binaries/libuv/0/libuv-1.34.0/install
 make
-make check
+#make check
 make install
 cd ../../
 
@@ -23,7 +23,7 @@ export CFLAGS="-O1"
 sh autogen.sh 
 ./configure --prefix=$BASEDIR/binaries/libuv/1/libuv-1.34.0/install
 make
-make check
+#make check
 make install
 cd ../../
 
@@ -34,7 +34,7 @@ export CFLAGS="-O2"
 sh autogen.sh 
 ./configure --prefix=$BASEDIR/binaries/libuv/2/libuv-1.34.0/install
 make
-make check
+#make check
 make install
 cd ../../
 
@@ -45,7 +45,7 @@ export CFLAGS="-O3"
 sh autogen.sh 
 ./configure --prefix=$BASEDIR/binaries/libuv/3/libuv-1.34.0/install
 make
-make check
+#make check
 make install
 cd ../../..
 

@@ -320,6 +320,68 @@ then
         grep -w 'MAINLOOP' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/mainloop_syscalls.out
         echo "System calls of mainloop of httpd with ${compiler} and -O3 is :"
         cat $HTTPD_OUT/mainloop_syscalls.out
+elif [[ "$app" == "bind" ]]
+then
+        BIND=$BASEDIR/compiler_optimizations/$compiler/binaries/bind/0/sbin/named
+        BIND_OUT=$EVALDIR/outputs/bind/opt/$compiler/0
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $BIND -s main -a 2,74710,main > $BIND_OUT/syscalls.out
+        else
+                ./syspart -p $BIND -s main -a 2,712da,main > $BIND_OUT/syscalls.out
+        fi
+
+        grep 'JSON' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/partition_size.out
+        grep -w 'MAIN' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of bind with ${compiler} and -O0 is :"
+        cat $BIND_OUT/mainloop_syscalls.out
+
+        BIND=$BASEDIR/compiler_optimizations/$compiler/binaries/bind/1/sbin/named
+        BIND_OUT=$EVALDIR/outputs/bind/opt/$compiler/1
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $BIND -s main -a 2,6746d,main > $BIND_OUT/syscalls.out
+        else
+                ./syspart -p $BIND -s main -a 2,6e6ec,main > $BIND_OUT/syscalls.out
+        fi
+        grep 'JSON' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/partition_size.out
+        grep -w 'MAIN' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of bind with ${compiler} and -O1 is :"
+        cat $BIND_OUT/mainloop_syscalls.out
+
+         BIND=$BASEDIR/compiler_optimizations/$compiler/binaries/bind/2/sbin/named
+        BIND_OUT=$EVALDIR/outputs/bind/opt/$compiler/2
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $BIND -s main -a 2,7bb61,main > $BIND_OUT/syscalls.out
+        else
+                ./syspart -p $BIND -s main -a 2,678c0,main > $BIND_OUT/syscalls.out
+        fi
+        grep 'JSON' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/partition_size.out
+        grep -w 'MAIN' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of bind with ${compiler} and -O2 is :"
+        cat $BIND_OUT/mainloop_syscalls.out
+
+        BIND=$BASEDIR/compiler_optimizations/$compiler/binaries/bind/3/sbin/named
+        BIND_OUT=$EVALDIR/outputs/bind/opt/$compiler/3
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $BIND -s main -a 2,7b6a1,main > $BIND_OUT/syscalls.out
+        else
+                ./syspart -p $BIND -s main -a 2,67e70,main > $BIND_OUT/syscalls.out
+        fi
+        grep 'JSON' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/partition_size.out
+        grep -w 'MAIN' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $BIND_OUT/syscalls.out | awk {'print $2'} > $BIND_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of bind with ${compiler} and -O3 is :"
+        cat $BIND_OUT/mainloop_syscalls.out
 fi
 
 

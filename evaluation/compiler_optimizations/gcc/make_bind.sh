@@ -13,13 +13,14 @@ tar -xvf ../zips/bind9.tar.gz
 cd bind9/
 export PKG_CONFIG_PATH=$BASEDIR/libuv/0/libuv-1.34.0/
 export CFLAGS="-O0"
-$CURDIR2=$BASEDIR/binaries/bind/0
+CURDIR2=$BASEDIR/binaries/bind/0
+
 LDFLAGS=-Wl,-rpath,$BASEDIR/binaries/libuv/0/libuv-1.34.0/install/lib ./configure --without-libxml2 --prefix=$BASEDIR/binaries/bind/0 
 make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -45,7 +46,7 @@ make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -71,7 +72,7 @@ make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -97,7 +98,7 @@ make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -112,3 +113,4 @@ mkdir $CURDIR2/var/run
 sudo chown bind:bind $CURDIR2/var/cache
 sudo chown bind:bind $CURDIR2/var/run
 sudo chown bind:bind $CURDIR2/lib
+

@@ -18,13 +18,13 @@ export RANLIB=llvm-ranlib
 export LD=/usr/bin/ld 
 export CFLAGS="-flto -O0 -fpic" 
 export LDFLAGS="-flto -pie -Wl,-rpath,$BASEDIR/binaries/libuv/0/libuv-1.34.0/install/lib"
-$CURDIR2=$BASEDIR/binaries/bind/0
+CURDIR2=$BASEDIR/binaries/bind/0
 ./configure  --without-libxml2 --prefix=$BASEDIR/binaries/bind/0 
 make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -48,13 +48,13 @@ export AR=llvm-ar
 export LD=/usr/bin/ld 
 export CFLAGS="-flto -O1 -fpic" 
 export LDFLAGS="-flto -pie -Wl,-rpath,$BASEDIR/binaries/libuv/0/libuv-1.34.0/install/lib"
-$CURDIR2=$BASEDIR/binaries/bind/1
+CURDIR2=$BASEDIR/binaries/bind/1
 ./configure  --without-libxml2 --prefix=$BASEDIR/binaries/bind/1 
 make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -78,13 +78,13 @@ export AR=llvm-ar
 export LD=/usr/bin/ld 
 export CFLAGS="-flto -O2 -fpic" 
 export LDFLAGS="-flto -pie -Wl,-rpath,$BASEDIR/binaries/libuv/0/libuv-1.34.0/install/lib"
-$CURDIR2=$BASEDIR/binaries/bind/2
+CURDIR2=$BASEDIR/binaries/bind/2
 ./configure --without-libxml2 --prefix=$BASEDIR/binaries/bind/2 
 make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
@@ -108,13 +108,13 @@ export AR=llvm-ar
 export LD=/usr/bin/ld 
 export CFLAGS="-flto -O3 -fpic" 
 export LDFLAGS="-flto -pie -Wl,-rpath,$BASEDIR/binaries/libuv/0/libuv-1.34.0/install/lib"
-$CURDIR2=$BASEDIR/binaries/bind/3
+CURDIR2=$BASEDIR/binaries/bind/3
 ./configure  --without-libxml2 --prefix=$BASEDIR/binaries/bind/3
 make -j 8
 make install
 cd ../
 rm -rf bind9
-cp $(BASEDIR)../../binaries/build_files/bind/etc/* $CURDIR2/etc/
+cp $BASEDIR/../../../binaries/build_files/bind/etc/* $CURDIR2/etc/
 sed "s#TOFILL#$CURDIR2#g" $CURDIR2/etc/named.conf.default-zones > temp.txt
 mv temp.txt $CURDIR2/etc/named.conf.default-zones
 
