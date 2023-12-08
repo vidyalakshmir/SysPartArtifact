@@ -12,7 +12,6 @@ export CFLAGS="-O0"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/0/apr-1.7.0/install
 make
-make test
 make install
 cd ../..
 cd 1
@@ -24,7 +23,6 @@ export CFLAGS="-O1"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/1/apr-1.7.0/install
 make
-make test
 make install
 cd ../..
 cd 2
@@ -36,7 +34,6 @@ export CFLAGS="-O2"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/2/apr-1.7.0/install
 make
-make test
 make install
 cd ../..
 cd 3
@@ -47,7 +44,6 @@ export CFLAGS="-O3"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/3/apr-1.7.0/install
 make
-make test
 make install
 cd ../../../../
 

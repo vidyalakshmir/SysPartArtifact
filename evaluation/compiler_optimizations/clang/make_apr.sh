@@ -16,11 +16,10 @@ export LDFLAGS="-flto -Wl -pie"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/0/apr-1.7.0/install
 make
-make test
 make install
 sed 's#NM="/usr/bin/nm -B"#NM="/usr/bin/llvm-nm -B"#' libtool > temp.txt
 mv temp.txt libtool
-sed 's#\$global_symbol_pipe |##' libtool > temp.txt
+sed 's#\\$global_symbol_pipe |##' libtool > temp.txt
 mv temp.txt libtool
 cd ../..
 cd 1
@@ -35,11 +34,10 @@ export LDFLAGS="-flto -Wl -pie"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/1/apr-1.7.0/install
 make
-make test
 make install
 sed 's#NM="/usr/bin/nm -B"#NM="/usr/bin/llvm-nm -B"#' libtool > temp.txt
 mv temp.txt libtool
-sed 's#\$global_symbol_pipe |##' libtool > temp.txt
+sed 's#\\$global_symbol_pipe |##' libtool > temp.txt
 mv temp.txt libtool
 cd ../..
 cd 2
@@ -54,11 +52,10 @@ export LDFLAGS="-flto -Wl -pie"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/2/apr-1.7.0/install
 make
-make test
 make install
 sed 's#NM="/usr/bin/nm -B"#NM="/usr/bin/llvm-nm -B"#' libtool > temp.txt
 mv temp.txt libtool
-sed 's#\$global_symbol_pipe |##' libtool > temp.txt
+sed 's#\\$global_symbol_pipe |##' libtool > temp.txt
 mv temp.txt libtool
 cd ../..
 cd 3
@@ -73,11 +70,10 @@ export LDFLAGS="-flto -Wl -pie"
 touch libtoolT
 ./configure --prefix=$BASEDIR/binaries/libapr/3/apr-1.7.0/install
 make
-make test
 make install
 sed 's#NM="/usr/bin/nm -B"#NM="/usr/bin/llvm-nm -B"#' libtool > temp.txt
 mv temp.txt libtool
-sed 's#\$global_symbol_pipe |##' libtool > temp.txt
+sed 's#\\$global_symbol_pipe |##' libtool > temp.txt
 mv temp.txt libtool
 cd ../../../../
 

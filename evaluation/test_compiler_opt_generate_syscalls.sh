@@ -258,5 +258,68 @@ then
         grep -w 'MAINLOOP' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/mainloop_syscalls.out
         echo "System calls of mainloop of nginx with ${compiler} and -O3 is :"
         cat $NGINX_OUT/mainloop_syscalls.out
+elif [[ "$app" == "httpd" ]]
+then
+        HTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/httpd/0/bin/httpd
+        HTTPD_OUT=$EVALDIR/outputs/httpd/opt/$compiler/0
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $HTTPD -s main -a 2,9d96d,child_main > $HTTPD_OUT/syscalls.out
+        else
+                ./syspart -p $HTTPD -s main -a 2,a30ff,child_main > $HTTPD_OUT/syscalls.out
+        fi
+
+        grep 'JSON' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/partition_size.out
+        grep -w 'MAIN' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of httpd with ${compiler} and -O0 is :"
+        cat $HTTPD_OUT/mainloop_syscalls.out
+
+        HTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/httpd/1/bin/httpd
+        HTTPD_OUT=$EVALDIR/outputs/httpd/opt/$compiler/1
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $HTTPD -s main -a 2,7690e,child_main > $HTTPD_OUT/syscalls.out
+        else
+                ./syspart -p $HTTPD -s main -a 2,75260,child_main > $HTTPD_OUT/syscalls.out
+        fi
+        grep 'JSON' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/partition_size.out
+        grep -w 'MAIN' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of httpd with ${compiler} and -O1 is :"
+        cat $HTTPD_OUT/mainloop_syscalls.out
+
+         HTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/httpd/2/bin/httpd
+        HTTPD_OUT=$EVALDIR/outputs/httpd/opt/$compiler/2
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $HTTPD -s main -a 2,7a3c8,child_main > $HTTPD_OUT/syscalls.out
+        else
+                ./syspart -p $HTTPD -s main -a 2,85fe0,child_main > $HTTPD_OUT/syscalls.out
+        fi
+        grep 'JSON' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/partition_size.out
+        grep -w 'MAIN' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of httpd with ${compiler} and -O2 is :"
+        cat $HTTPD_OUT/mainloop_syscalls.out
+
+        HTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/httpd/3/bin/httpd
+        HTTPD_OUT=$EVALDIR/outputs/httpd/opt/$compiler/3
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $HTTPD -s main -a 2,8fe16,child_main > $HTTPD_OUT/syscalls.out
+        else
+                ./syspart -p $HTTPD -s main -a 2,8a350,child_main > $HTTPD_OUT/syscalls.out
+        fi
+        grep 'JSON' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/partition_size.out
+        grep -w 'MAIN' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $HTTPD_OUT/syscalls.out | awk {'print $2'} > $HTTPD_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of httpd with ${compiler} and -O3 is :"
+        cat $HTTPD_OUT/mainloop_syscalls.out
 fi
+
 
