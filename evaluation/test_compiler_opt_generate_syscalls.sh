@@ -28,7 +28,7 @@ then
 	grep 'PARTITION_SIZE' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/partition_size.out
 	grep -w 'MAIN' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/main_syscalls.out
 	grep -w 'MAINLOOP' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/mainloop_syscalls.out
-	echo "System calls of mainloop of lighttpd with gcc and -O0 is :"
+	echo "System calls of mainloop of lighttpd with ${compiler} and -O0 is :"
 	cat $LIGHTTPD_OUT/mainloop_syscalls.out
 
 	LIGHTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/lighttpd/1/sbin/lighttpd
@@ -43,7 +43,7 @@ then
 	grep 'PARTITION_SIZE' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/partition_size.out
 	grep -w 'MAIN' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/main_syscalls.out
 	grep -w 'MAINLOOP' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/mainloop_syscalls.out
-	echo "System calls of mainloop of lighttpd with gcc and -O1 is :"
+	echo "System calls of mainloop of lighttpd with ${compiler} and -O1 is :"
 	cat $LIGHTTPD_OUT/mainloop_syscalls.out
 
 	LIGHTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/lighttpd/2/sbin/lighttpd
@@ -58,7 +58,7 @@ then
 	grep 'PARTITION_SIZE' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/partition_size.out
 	grep -w 'MAIN' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/main_syscalls.out
 	grep -w 'MAINLOOP' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/mainloop_syscalls.out
-	echo "System calls of mainloop of lighttpd with gcc and -O2 is :"
+	echo "System calls of mainloop of lighttpd with ${compiler} and -O2 is :"
 	cat $LIGHTTPD_OUT/mainloop_syscalls.out
 
 	LIGHTTPD=$BASEDIR/compiler_optimizations/$compiler/binaries/lighttpd/3/sbin/lighttpd
@@ -73,7 +73,7 @@ then
 	grep 'PARTITION_SIZE' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/partition_size.out
 	grep -w 'MAIN' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/main_syscalls.out
 	grep -w 'MAINLOOP' $LIGHTTPD_OUT/syscalls.out | awk {'print $2'} > $LIGHTTPD_OUT/mainloop_syscalls.out
-	echo "System calls of mainloop of lighttpd with gcc and -O3 is :"
+	echo "System calls of mainloop of lighttpd with ${compiler} and -O3 is :"
 	cat $LIGHTTPD_OUT/mainloop_syscalls.out
 elif [[ "$app" == "redis" ]]
 then
@@ -89,7 +89,7 @@ then
         grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
         grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of redis with gcc and -O0 is :"
+        echo "System calls of mainloop of redis with ${compiler} and -O0 is :"
         cat $REDIS_OUT/mainloop_syscalls.out
 
         REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/1/redis-server
@@ -104,7 +104,7 @@ then
         grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
         grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of redis with gcc and -O1 is :"
+        echo "System calls of mainloop of redis with ${compiler} and -O1 is :"
         cat $REDIS_OUT/mainloop_syscalls.out
 
          REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/2/redis-server
@@ -119,7 +119,7 @@ then
         grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
         grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of redis with gcc and -O2 is :"
+        echo "System calls of mainloop of redis with ${compiler} and -O2 is :"
         cat $REDIS_OUT/mainloop_syscalls.out
 
         REDIS=$BASEDIR/compiler_optimizations/$compiler/binaries/redis/3/redis-server
@@ -134,7 +134,7 @@ then
         grep 'PARTITION_SIZE' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/partition_size.out
         grep -w 'MAIN' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $REDIS_OUT/syscalls.out | awk {'print $2'} > $REDIS_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of redis with gcc and -O3 is :"
+        echo "System calls of mainloop of redis with ${compiler} and -O3 is :"
         cat $REDIS_OUT/mainloop_syscalls.out
 elif [[ "$app" == "memcached" ]]
 then
@@ -150,7 +150,7 @@ then
         grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
         grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of memcached with gcc and -O0 is :"
+        echo "System calls of mainloop of memcached with ${compiler} and -O0 is :"
         cat $MEMCACHED_OUT/mainloop_syscalls.out
 
         MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/1/bin/memcached
@@ -165,7 +165,7 @@ then
         grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
         grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of memcached with gcc and -O1 is :"
+        echo "System calls of mainloop of memcached with ${compiler} and -O1 is :"
         cat $MEMCACHED_OUT/mainloop_syscalls.out
 
          MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/2/bin/memcached
@@ -180,7 +180,7 @@ then
         grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
         grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of memcached with gcc and -O2 is :"
+        echo "System calls of mainloop of memcached with ${compiler} and -O2 is :"
         cat $MEMCACHED_OUT/mainloop_syscalls.out
 
         MEMCACHED=$BASEDIR/compiler_optimizations/$compiler/binaries/memcached/3/bin/memcached
@@ -195,6 +195,68 @@ then
         grep 'PARTITION_SIZE' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/partition_size.out
         grep -w 'MAIN' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/main_syscalls.out
         grep -w 'MAINLOOP' $MEMCACHED_OUT/syscalls.out | awk {'print $2'} > $MEMCACHED_OUT/mainloop_syscalls.out
-        echo "System calls of mainloop of memcached with gcc and -O3 is :"
+        echo "System calls of mainloop of memcached with ${compiler} and -O3 is :"
         cat $MEMCACHED_OUT/mainloop_syscalls.out
+elif [[ "$app" == "nginx" ]]
+then
+        NGINX=$BASEDIR/compiler_optimizations/$compiler/binaries/nginx/0/sbin/nginx
+        NGINX_OUT=$EVALDIR/outputs/nginx/opt/$compiler/0
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $NGINX -s main -a 2,62b1e,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        else
+                ./syspart -p $NGINX -s main -a 2,5aba7,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        fi
+        grep 'JSON' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/partition_size.out
+        grep -w 'MAIN' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of nginx with ${compiler} and -O0 is :"
+        cat $NGINX_OUT/mainloop_syscalls.out
+
+        NGINX=$BASEDIR/compiler_optimizations/$compiler/binaries/nginx/1/sbin/nginx
+        NGINX_OUT=$EVALDIR/outputs/nginx/opt/$compiler/1
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $NGINX -s main -a 2,45ed6,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        else
+                ./syspart -p $NGINX -s main -a 2,509dd,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        fi
+        grep 'JSON' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/partition_size.out
+        grep -w 'MAIN' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of nginx with ${compiler} and -O1 is :"
+        cat $NGINX_OUT/mainloop_syscalls.out
+
+         NGINX=$BASEDIR/compiler_optimizations/$compiler/binaries/nginx/2/sbin/nginx
+        NGINX_OUT=$EVALDIR/outputs/nginx/opt/$compiler/2
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $NGINX -s main -a 2,46498,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        else
+                ./syspart -p $NGINX -s main -a 2,4f2ed,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        fi
+        grep 'JSON' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/partition_size.out
+        grep -w 'MAIN' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of nginx with ${compiler} and -O2 is :"
+        cat $NGINX_OUT/mainloop_syscalls.out
+
+        NGINX=$BASEDIR/compiler_optimizations/$compiler/binaries/nginx/3/sbin/nginx
+        NGINX_OUT=$EVALDIR/outputs/nginx/opt/$compiler/3
+        if [[ "$compiler" == "gcc" ]]
+        then
+                ./syspart -p $NGINX -s main -a 2,4dde8,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        else
+                ./syspart -p $NGINX -s main -a 2,5134d,ngx_worker_process_cycle > $NGINX_OUT/syscalls.out
+        fi
+        grep 'JSON' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/syscalls.json
+        grep 'PARTITION_SIZE' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/partition_size.out
+        grep -w 'MAIN' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/main_syscalls.out
+        grep -w 'MAINLOOP' $NGINX_OUT/syscalls.out | awk {'print $2'} > $NGINX_OUT/mainloop_syscalls.out
+        echo "System calls of mainloop of nginx with ${compiler} and -O3 is :"
+        cat $NGINX_OUT/mainloop_syscalls.out
 fi
+

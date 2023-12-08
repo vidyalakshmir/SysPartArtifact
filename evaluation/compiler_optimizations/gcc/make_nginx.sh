@@ -1,4 +1,6 @@
-$BASEDIR=$(pwd)
+#!/bin/bash
+
+BASEDIR=$(pwd)
 mkdir -p binaries/nginx/0
 mkdir -p binaries/nginx/1
 mkdir -p binaries/nginx/2
