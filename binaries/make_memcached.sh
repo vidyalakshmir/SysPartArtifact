@@ -20,6 +20,7 @@ mkdir $CURDIR2
 make
 make install
 cp $CURDIR2/bin/memcached ../final/
-mkdir /etc/sasl2
-echo "mech_list : plain" > /etc/sasl2/memcached.conf
-echo "log_level : 5" >> /etc/sasl2/memcached.conf
+sudo mkdir /etc/sasl2
+echo "mech_list : plain" > memcached.conf
+echo "log_level : 5" >> memcached.conf
+sudo mv memcached.conf /etc/sasl2/
