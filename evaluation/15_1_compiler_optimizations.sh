@@ -16,7 +16,7 @@ if [ ! -e "$BASEDIR/binaries/lighttpd/0/sbin/lighttpd" ]; then
 fi 
 if [ ! -e "$BASEDIR/binaries/memcached/0/bin/memcached" ]; then
 	./compiler_opt_create_binaries.sh gcc libevent
-	/compiler_opt_create_binaries.sh gcc memcached
+	./compiler_opt_create_binaries.sh gcc memcached
 fi
 if [ ! -e "$BASEDIR/binaries/nginx/0/sbin/nginx" ]; then
 	./compiler_opt_create_binaries.sh gcc nginx
@@ -41,7 +41,7 @@ if [ ! -e "$BASEDIR/binaries/lighttpd/0/sbin/lighttpd" ]; then
 fi
 if [ ! -e "$BASEDIR/binaries/memcached/0/bin/memcached" ]; then
         ./compiler_opt_create_binaries.sh clang libevent
-        /compiler_opt_create_binaries.sh clang memcached
+        ./compiler_opt_create_binaries.sh clang memcached
 fi
 if [ ! -e "$BASEDIR/binaries/nginx/0/sbin/nginx" ]; then
         ./compiler_opt_create_binaries.sh clang nginx
