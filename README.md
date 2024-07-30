@@ -1,6 +1,8 @@
 # SYSPART
 
-This software is the implementation of our [paper](https://github.com/vidyalakshmir/SysPartArtifact/blob/main/paper/SYSPART.pdf) "SYSPART: Automated Temporal System Call Filtering for Binaries", published in ACM Conference on Computer and Communications Security (CCS) 2023. (https://dl.acm.org/doi/10.1145/3576915.3623207)
+This software is the implementation of our [paper](https://github.com/vidyalakshmir/SysPartArtifact/blob/main/paper/SYSPART.pdf) "SYSPART: Automated Temporal System Call Filtering for Binaries", published in ACM Conference on Computer and Communications Security (CCS) 2023. (https://dl.acm.org/doi/10.1145/3576915.3623207).
+
+This repository is aimed at reproducing the results of the paper and contains all code and scripts to run the experiments of the paper. We have created another repository with only the code, which can be used for running different functionalities or modules.
 
 ```
 @inproceedings{syspart_ccs23,
@@ -12,15 +14,14 @@ pages = {1979–1993},
 }
 ```
 
+
 ## Table of Contents
 
 - [Directory Structure](#directory-structure)
 - [Supported Environment](#supported-environment)
 - [Major Claims & Experiments](#major-claims-&-experiments)
 - [Setup](#setup)
-- [Build](#build)
 - [Experiments](#experiments)
-- [Debugging](#debugging)
 - [License](#license)
 
 ## Directory Structure
