@@ -49,7 +49,7 @@ The experiments were run on 4-core Intel Core i7 8550U 1.80GHz CPU with 16GB RAM
 The experiments were performed on Ubuntu 18.04.6 LTS (kernel version 5.4.0-150). t is recommended to use this version of Ubuntu to achieve the outputs described in the paper, as the results depend on the specific library versions included in this Ubuntu release. Tools including [Egalito](https://github.com/stevens-s3lab/egalito.git), [Intel Pin 3.11](https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-dynamic-binary-instrumentation-tool.html) and [TypeArmor](https://github.com/vusec/typearmor) were used.
 
 
-## Major Claims and Experiments
+## Major Claims \& Experiments
 
 - **(C1):** SYSPART only allows 8.33% more syscalls than TSP.
 This is demonstrated by experiment (E1) and (E2) whose results are illustrated in Table 2.
