@@ -104,8 +104,8 @@ This updates the git repo to the latest commit.
 #### Notes on the docker container
 - The git repo containing the source code and evaluation scripts is within the folder `/home/syspart/SysPartArtifact`. 
 - The benchmark applications are installed in `/home/syspart/SysPartArtifact/binaries`. 
-- External tools required to run SYSPART (Egalito and Intel Pin) are installed in /home/syspart/SysPartArtifact/tools. 
-- Outputs of TypeArmor can be found in `/home/syspart/SysPartArtifact/outputs/$app/typearmor` where $app can be any of the benchmark applications.
+- External tools required to run SYSPART (Egalito and Intel Pin) are installed in `/home/syspart/SysPartArtifact/tools`. 
+- Outputs of TypeArmor can be found in `/home/syspart/SysPartArtifact/outputs/$app/typearmor` where `$app` can be any of the benchmark applications.
 - Outputs of related work sysfilter (SF) and Temporal Specialization (TSP) are found in `/home/syspart/SysPartArtifact/related_work/sf` and `/home/syspart/SysPartArtifact/related_work/tsp respectively`.
 
 ### Setup from Scratch
@@ -157,13 +157,15 @@ $ make
 This will first build Egalito which is a dependency for SYSPART and then build SYSPART.
 
 #### Install Intel Pin
+```shell
 $ cd SysPartArtifact/analysis/tools
 $ tar -xvf pin-3.11-97998-g7ecce2dac-gcc-linux.tar.gz
+```
 
 ### Other tools and related work
 The repo contains pre-computed outputs from the following external tools and related work which are used for comparison in our experiments. Only these outputs are required to run the experiments. Installation of these tools are not necessary.
 
-1. TypeArmor : This is an optional FCG refining tool used by SYSPART. The output from TypeArmor is included within the folder `SysPartArtifact/outputs/$app/typearmor`, where $app is one of the benchmark applications. It can be installed from scratch from [its repo](https://github.com/vusec/typearmor).
+1. TypeArmor : This is an optional FCG refining tool used by SYSPART. The output from TypeArmor is included within the folder `SysPartArtifact/outputs/$app/typearmor`, where `$app` is one of the benchmark applications. It can be installed from scratch from [its repo](https://github.com/vusec/typearmor).
 
 2. sysfilter (SF) : There are experiments that compare against the sysfilter tool. The results after running the benchmark applications using the sysfilter tool can be found in `SysPartArtifact/related_work/sf`. Instructions to install sysfilter can be found [here](https:
 //github.com/vidyalakshmir/SysPartArtifact/
@@ -190,7 +192,7 @@ Execute the following command within the folder `SysPartArtifact/evaluation` to 
 $ ./1_static_loop_analysis
 ```
 
-Execute the following commands to determine the main loops of the servers. Except for httpd and nginx, all other servers require user intervention to stop them (which will be displayed on the screen).
+Execute the following commands to determine the main loops of the servers. Except for `httpd` and `nginx`, all other servers require user intervention to stop them (which will be displayed on the screen).
 
 ``` shell
 $ ./2_dynamic_dominant_loop_detection_bind.sh
@@ -234,8 +236,7 @@ $ ./10_kernel_evaluation.sh
 ```
 
 #### Results
-All values in T
-able 3 can be observed with this experiment. This experiment validates claim C4.
+All values in Table 3 can be observed with this experiment. This experiment validates claim C4.
 
 ### (E4): Exploit Code Mitigation
 - Compute time: 10 minutes
