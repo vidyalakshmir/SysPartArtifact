@@ -167,13 +167,9 @@ The repo contains pre-computed outputs from the following external tools and rel
 
 1. TypeArmor : This is an optional FCG refining tool used by SYSPART. The output from TypeArmor is included within the folder `SysPartArtifact/outputs/$app/typearmor`, where `$app` is one of the benchmark applications. It can be installed from scratch from [its repo](https://github.com/vusec/typearmor).
 
-2. sysfilter (SF) : There are experiments that compare against the sysfilter tool. The results after running the benchmark applications using the sysfilter tool can be found in `SysPartArtifact/related_work/sf`. Instructions to install sysfilter can be found [here](https:
-//github.com/vidyalakshmir/SysPartArtifact/
-blob/main/related_work/sf/README.md).
+2. sysfilter (SF) : There are experiments that compare against the sysfilter tool. The results after running the benchmark applications using the sysfilter tool can be found in `SysPartArtifact/related_work/sf`. Instructions to install sysfilter can be found [here](https://github.com/vidyalakshmir/SysPartArtifact/blob/main/related_work/sf/README.md).
 
-3. Temporal Specialization (TSP) : There are experiments that compare against the TSP tool. The results after running the benchmark applications using the TSP tool can be found in `SysPartArtifact/related_work/tsp`. Instructions to install TSP can be found [here](https:
-//github.com/vidyalakshmir/SysPartArtifact/
-blob/main/related_work/tsp/README.md).
+3. Temporal Specialization (TSP) : There are experiments that compare against the TSP tool. The results after running the benchmark applications using the TSP tool can be found in `SysPartArtifact/related_work/tsp`. Instructions to install TSP can be found [here](https://github.com/vidyalakshmir/SysPartArtifact/blob/main/related_work/tsp/README.md).
 
 ## Experiments
 
