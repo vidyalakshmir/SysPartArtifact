@@ -1,8 +1,11 @@
 # SYSPART
 
-This software is the implementation of our [paper](https://github.com/vidyalakshmir/SysPartArtifact/blob/main/paper/SYSPART.pdf) "SYSPART: Automated Temporal System Call Filtering for Binaries", published in ACM Conference on Computer and Communications Security (CCS) 2023. (https://dl.acm.org/doi/10.1145/3576915.3623207).
+## Note
+- Use the companion repository **[`SysPartCode`](https://github.com/vidyalakshmir/SysPartCode)**, if you want to **analyze your own applications** using the system's functionalities (call graph generation, system call filter generation, dlopen/dlsym analysis etc). We update **`SysPartCode`** to ensure compatibility with newer operating systems and to incorporate feature enhancements.
+- Use this repo, if you want to **reproduce the results of the SYSPART paper** with the necessary environment, applications and dependent libraries.
 
-This repository is aimed at **reproducing the results of the paper** and contains all code and scripts to run the experiments of the paper. We have created another repository [SysPartCode](https://github.com/vidyalakshmir/SysPartCode) with only the code, **which can be used for running different functionalities or modules**.
+## About this Repository
+This repository is aimed at **reproducing the results of our [paper](https://github.com/vidyalakshmir/SysPartArtifact/blob/main/paper/SYSPART.pdf)** "SYSPART: Automated Temporal System Call Filtering for Binaries", published in ACM Conference on Computer and Communications Security (CCS) 2023. (https://dl.acm.org/doi/10.1145/3576915.3623207). It includes all the necessary **code and scripts to run the paper's experiments**.
 
 ```
 @inproceedings{syspart_ccs23,
